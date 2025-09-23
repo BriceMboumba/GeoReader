@@ -2,6 +2,8 @@
 
 GeoReader is an open-source tool built on top of **GDAL** (specifically `ogr2ogr` ) that allows you to **convert MapInfo** `.TAB` files into ESRI Shapefiles (`.shp`) and visualize the data directly on a map powered by **[Leaflet](https://leafletjs.com/)**.
 
+<img src="./georeader.png" alt="georeader" width="1000"/>
+
 ## 🚀 Description
 
 The main goal of GeoReader is to streamline the process of working with MapInfo `.TAB` files by converting them into a widely supported format (Shapefile) and providing quick visualization.
@@ -121,11 +123,20 @@ npm --version # -> 10.8.2
 
 ## ▶️ Running GeoReader
 
-At the root of the project, run:
+At the root of the project:
 
-```bash
-./georeader.sh
-```
+- For the first time, run
+
+    ```bash
+    chmod +x georeader.sh
+    ./georeader.sh
+    ```
+
+- For other times you can simply run
+
+    ```bash
+    ./georeader.sh
+    ```
 
 This will start the Vue.js application, served via Electron, and launch the interface where you can convert and visualize your data.
 

@@ -303,7 +303,7 @@ async function selectShpFile() {
 }
 
 // Fonction de conversion modifiée avec nom de dossier personnalisé
-// Modifiez votre fonction convertFile() dans Reader.vue
+// Dans Reader.vue - remplacez la fonction convertFile()
 async function convertFile() {
   if (!selectedTabFilePath.value) {
     error.value = 'Aucun fichier .TAB sélectionné'
@@ -324,27 +324,11 @@ async function convertFile() {
 
     const directoryPath = window.electronAPI.dirname(tabFilePath)
 
-    // Vérifier les permissions du dossier parent
-    const parentDirStats = await window.electronAPI.getStats(directoryPath)
-    if (!parentDirStats || !parentDirStats.isDirectory()) {
-      throw new Error(`Le dossier parent n'existe pas ou n'est pas accessible: ${directoryPath}`)
-    }
-
     // Récupérer le nom du fichier sans extension
     const fileName = selectedTabFile.value.name.replace(/\.tab$/i, '')
 
     // Créer le nom du dossier avec le format: NOMFICHIER_shp
     const outputDir = window.electronAPI.joinPath(directoryPath, `${fileName}_shp`)
-
-    // Vérifier si le dossier existe déjà et a les bonnes permissions
-    const outputDirExists = await window.electronAPI.pathExists(outputDir)
-    if (outputDirExists) {
-      // Si le dossier existe, vérifier les permissions
-      const stats = await window.electronAPI.getStats(outputDir)
-      if (!stats || !stats.isDirectory()) {
-        throw new Error(`Le chemin de sortie existe mais n'est pas un dossier: ${outputDir}`)
-      }
-    }
 
     const shapefilePath = window.electronAPI.joinPath(outputDir, `${fileName}.shp`)
 

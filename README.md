@@ -2,7 +2,7 @@
 
 GeoReader is an open-source tool built on top of **GDAL** (specifically `ogr2ogr` ) that allows you to **convert MapInfo** `.TAB` files into ESRI Shapefiles (`.shp`) and visualize the data directly on a map powered by **[Leaflet](https://leafletjs.com/)**.
 
-<img src="./georeader.png" alt="georeader" width="1000"/>
+![georeader](./georeader.png)
 
 ## 🚀 Description
 
